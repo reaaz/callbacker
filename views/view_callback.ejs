@@ -1,0 +1,22 @@
+<% include header.ejs %>
+<div class="jumbotron">
+    <h1><%= title %></h1>
+    <ul class="list-unstyled">
+      <li><strong>Destination URL</strong></li>
+      <li><%= callback.url %></li>
+      <li><strong>Source IP Address</strong></li>
+      <li><%= callback.ipAddress %></li>
+      <li><strong>Created</strong></li>
+      <li><pre><%= callback.created_at %></pre></li>
+      <li><strong>Payload</strong></li>
+      <li><pre id="payload"><%= JSON.stringify(callback.payload) %></pre></li>
+      <li><strong>Copy Callback</strong></li>
+      <li>
+        <button id="local" type="button" class="btn btn-primary">Local</button>
+        <button id="beta" type="button" class="btn btn-success">Beta</button>
+        <button id="preprod" type="button" class="btn btn-warning">Preprod</button>
+      </li>
+      <li>Copy the callback code to your clipboard and paste it into the JavaScript console on Identity.</li>
+    </ul>
+</div>
+<% include footer.ejs %>

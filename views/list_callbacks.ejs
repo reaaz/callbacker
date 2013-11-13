@@ -1,0 +1,22 @@
+<% include header.ejs %>
+<div class="jumbotron">
+    <h1><%= title %></h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th><th>Destination URL</th><th>Source IP Address</th><th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i = 0; i < callbacks.length; i++) { %>
+          <tr>
+            <td><a href="/callbacks/<%= callbacks[i].id %>"><%= callbacks[i].id %></a></td>
+            <td><%= callbacks[i].url %></td>
+            <td><%= callbacks[i].ipAddress %></td>
+            <td><%= callbacks[i].created_at %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+</div>
+<% include footer.ejs %>
