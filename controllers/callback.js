@@ -10,7 +10,7 @@ exports.list = function(req, res) {
 };
 
 exports.add = function(req, res) {
-    var payload = req.body;
+    var payload = req.rawBody;
     req.db.models.callback.create([
         {
             url: req.originalUrl,

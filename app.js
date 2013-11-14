@@ -24,6 +24,16 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(express.compress());
 app.use(express.favicon());
+app.use(function(req, res, next) {
+    req.setEncoding('utf8');
+    req.rawBody = '';
+    req.on('data', function(chunk) {
+        req.rawBody += chunk;
+    });
+    req.on('end', function() {
+        next();
+    });
+});
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
