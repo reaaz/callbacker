@@ -34,7 +34,6 @@ app.use(function(req, res, next) {
         next();
     });
 });
-app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(orm.express(connection_string, {
