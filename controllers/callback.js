@@ -11,10 +11,12 @@ exports.list = function(req, res) {
 
 exports.add = function(req, res) {
     var payload = req.rawBody;
+    var contentType = req.get('Content-Type');
     req.db.models.callback.create([
         {
             url: req.originalUrl,
             ipAddress: req.ip,
+            contentType: contentType,
             payload: payload
         },
     ],

@@ -7,10 +7,10 @@ $(document).ready(function () {
         if (button) {
             var environment = button.id;
             var payload = $("#payload").text();
+            var contentType = $("#contentType").text();
             // Build URL that environment buttons hit
-            var url = "http://id-" + environment + ".intranet.peoplesearchmedia.com";
-            url += "/verification/status";
-            var request = 'type: "POST", url: "' + url + '", contentType: "application/json", data: \'' + payload + '\'';
+            var url = "http://id-" + environment + ".intranet.peoplesearchmedia.com/verification/complete";
+            var request = 'type: "POST", url: "' + url + '", contentType: "' + contentType + '", data: \'' + payload + '\'';
             var text = '$.ajax({' + request + '}).done(function (data) { console.log(data); });';
             window.prompt("Copy to clipboard with Ctrl-C [Cmd-C] and press Enter: ", text);
         }
