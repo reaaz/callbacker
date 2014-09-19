@@ -9,7 +9,7 @@ $(document).ready(function () {
             var payload = $("#payload").text();
             var contentType = $("#contentType").text();
             // Build URL that environment buttons hit
-            var url = "http://id-" + environment + ".intranet.peoplesearchmedia.com/verification/photo-id/finish";
+            var url = "https://id-" + environment + ".inflection.net/verification/photo-id/finish";
             var request = 'type: "POST", url: "' + url + '", contentType: "' + contentType + '", data: \'' + payload + '\'';
             var text = '$.ajax({' + request + '}).done(function (data) { console.log(data); });';
             window.prompt("Copy to clipboard with Ctrl-C [Cmd-C] and press Enter: ", text);
